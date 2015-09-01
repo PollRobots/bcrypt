@@ -3,6 +3,10 @@
 
 #define BCRYPT_HASHSIZE	64
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*
  * This function expects a work factor between 4 and 31 and a char array to
  * store the resulting generated salt. The char array should typically have
@@ -52,5 +56,9 @@ int bcrypt_hashpw(const char *passwd, const char salt[BCRYPT_HASHSIZE], char has
  *		printf("The password does NOT match\n");
  *	}
  */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
