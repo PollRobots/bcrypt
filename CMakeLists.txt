@@ -4,7 +4,9 @@ cmake_minimum_required(VERSION 2.8)
 
 remove_definitions(-std=c++11)
 
-set(bcrypt_SRCS bcrypt.c)
+set(bcrypt_SRCS
+    bcrypt.c
+    platform.c)
 
 add_library(bcrypt STATIC ${bcrypt_SRCS})
 

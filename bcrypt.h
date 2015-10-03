@@ -1,6 +1,8 @@
 #ifndef _BCRYPT_H_
 #define _BCRYPT_H_
 
+#include "platform.h"
+
 #define BCRYPT_HASHSIZE	64
 
 #ifdef __cplusplus
