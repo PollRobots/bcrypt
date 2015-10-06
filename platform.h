@@ -12,9 +12,16 @@
 #define GEN_RANDOM(buf, len) arc4random_buf(buf, len)
 #elif !defined(BCRYPT_WINDOWS)
 /* on an arbitrary unix system, we'll just read from /dev/urandom */
+#include <stdlib.h>
 #define PLATFORM_RANDOM_UNIX
 #define GEN_RANDOM(buf, len) platform_random(buf, len)
-extern "C" void platform_random(char *buffer, size_t length);
+#ifdef __cplusplus
+extern "C" {
+#endif
+void platform_random(char *buffer, size_t length);
+#ifdef __cplusplus
+}
+#endif
 #else
 /* We would just used CryptGenRandom if we ever build on windows */
 #error Windows is not supported
