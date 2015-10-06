@@ -40,6 +40,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "bcrypt.h"
+#include "platform.h"
 
 #ifndef __set_errno
 #define __set_errno(val) errno = (val)
