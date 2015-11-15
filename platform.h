@@ -23,8 +23,15 @@ void platform_random(char *buffer, size_t length);
 }
 #endif
 #else
-/* We would just used CryptGenRandom if we ever build on windows */
-#error Windows is not supported
+#define PLATFORM_WINDOWS
+#define GEN_RANDOM(buf, len) platform_random(buf, len)
+#ifdef __cplusplus
+extern "C" {
+#endif
+void platform_random(char *buffer, int length);
+#ifdef __cplusplus
+}
+#endif
 #endif
 
 #endif
